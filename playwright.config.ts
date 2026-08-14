@@ -28,7 +28,7 @@ function resolveBaseURL(): string {
 
 
 export default defineConfig({
-  testDir: './src/tests',
+  testDir: './tests',
 
   timeout: 60_000,
 
