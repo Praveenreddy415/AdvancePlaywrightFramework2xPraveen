@@ -5,14 +5,18 @@
 
 export interface RcaVerdict {
     test: string;
-    verdict: string;
-    confidence: number;
+    severity: string;
+    priority: string;
+    rootCause: string;
+    fixes: string[];
 }
 
 export async function analyzeFailure(data: unknown): Promise<RcaVerdict> {
     return {
         test: '',
-        verdict: 'Unable to analyze',
-        confidence: 0
+        severity: 'Unknown',
+        priority: 'Unknown',
+        rootCause: 'Unable to analyze',
+        fixes: [],
     };
 }

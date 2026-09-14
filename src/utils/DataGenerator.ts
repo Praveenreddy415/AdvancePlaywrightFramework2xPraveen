@@ -6,8 +6,8 @@
  * centralises all random data so tests stay deterministic-friendly (one
  * import) and read naturally.
  *
- * Faker v8 API notes (project is CommonJS, so we pin the dual CJS/ESM v8):
- *   - `faker.internet.userName()`        (lowercase `username()` is v9+ only)
+ * Faker API notes:
+ *   - `faker.internet.username()`
  *   - `faker.internet.password({length})` (v8 options-object form; avoids the
  *      deprecated positional overload)
  *   - `faker.location.zipCode()`         (v8 renamed `address` -> `location`)
@@ -37,7 +37,7 @@ export class DataGenerator {
 
     /** Random username, e.g. "Otilia35". */
     static username(): string {
-        return faker.internet.userName();
+        return faker.internet.username();
     }
 
     /**

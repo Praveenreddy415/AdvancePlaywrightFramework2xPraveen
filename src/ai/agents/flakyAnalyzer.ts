@@ -4,12 +4,18 @@
  */
 
 export interface BuildSummary {
-    id: string;
-    tests: unknown[];
+    runId: string;
+    tests: Record<string, string>;
 }
 
 export interface FlakyResult {
-    flaky: unknown[];
+    flaky: string[];
+    summary?: string;
+    counts: {
+        flaky: number;
+        failing: number;
+        total: number;
+    };
 }
 
 export async function analyzeFlaky(
@@ -18,6 +24,11 @@ export async function analyzeFlaky(
     hasKey: boolean
 ): Promise<FlakyResult> {
     return {
-        flaky: []
+        flaky: [],
+        counts: {
+            flaky: 0,
+            failing: 0,
+            total: Object.keys(curr.tests).length,
+        },
     };
 }
